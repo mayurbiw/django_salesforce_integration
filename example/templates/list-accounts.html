@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<title>list salesforce accounts</title>
+</head>
+<body>
+		
+		</tbody>
+	  </table>
+
+<div class="salesforce">
+	<div class="content">
+		<div id="content-wrapper">
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Phone</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for account in accounts %}
+					<tr>
+						<th scope="row">{{ forloop.counter }}</th>
+						<td>{{ account.Name }}</td>
+						<td>{{ account.Phone }}</td>
+					 </tr>
+					{% endfor %}
+			</tbody>
+			</table>
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<form action="{% url 'add_account' %}">
+	<button type="submit">Add a account </button>
+</form>
+
+</body>
+</html>

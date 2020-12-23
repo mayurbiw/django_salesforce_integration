@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Add Account</title>
+  </head>
+  <body>
+    <h1>Add Account</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+    <form action= "{% url 'add_account' %}" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+            <input type="text" class="form-control" name="Name"  aria-label="Username" aria-describedby="basic-addon1" required>
+          </div>
+        
+          <label for="Type">Type</label>
+       
+          <select  name="type" class="form-select" aria-label="Default select example">
+            <option selected>Select the type</option>
+            <option value="Analyst">Analyst</option>
+            <option value="Competitor">Competitor</option>
+            <option value="Customer">Customer</option>
+            <option value="Integrator">Integrator</option>
+            <option value="Investor">Investor</option>
+            <option value="Partner">Partner</option>
+            <option value="Press">Press</option>
+            <option value="Prospect">Prospect</option>
+            <option value="Reseller">Reseller</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <br>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Billing Street</span>
+            <textarea name="BillingStreet" class="form-control"></textarea>
+          </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Billing City</span>
+            <input type="text" name="BillingCity" class="form-control">
+          </div>
+          
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Billing State</span>
+            <input type="text" class="form-control" name="BillingState">
+          </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Billing PostalCode</span>
+            <input type="text" class="form-control" name="BillingPostalCode">
+          </div>
+      
+          
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Billing Country</span>
+            <input type="text" class="form-control" name="BillingCountry">
+        </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Shipping Street</span>
+            <textarea class="form-control" name="ShippingStreet"></textarea>
+          </div>
+        
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Shipping City</span>
+            <input type="text" class="form-control" name="ShippingCity">
+          </div>
+          
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Shipping State</span>
+            <input type="text" class="form-control"  name="ShippingState">
+          </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Shipping PostalCode</span>
+            <input type="text" class="form-control" name="ShippingPostalCode">
+          </div>
+      
+          
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Shipping Country</span>
+            <input type="text" class="form-control" name="ShippingCountry">
+        </div>
+        
+        
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Website</span>
+            <input type="text" class="form-control" name="Website">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Phone</span>
+            <input type="text" class="form-control" name="Phone">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Industry</span>
+            <input type="text" class="form-control" name="Industry">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Desciption</span>
+            <textarea name="Desciption" class="form-control"></textarea>
+        </div>
+
+        <br>
+        <label for="Owner">Owner</label> 
+        <select name="Owner" class="form-select" aria-label="Default select example" required>
+            <option selected>Select the owner</option>
+            {% for username in usernames %}
+                 <option value="{{ username }}">{{ username}}</option>
+		    {% endfor %}
+        </select> 
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <form action= "{% url 'list_accounts' %}" action="get">
+        <button type="submit">See all customer</button>
+    </form>
+    
+
+  </body>
+</html>
+
+    
